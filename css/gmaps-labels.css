@@ -1,0 +1,22 @@
+.gmaps-label {
+	position: absolute;
+	border: 0;
+	white-space: nowrap;
+	font-family: Arial, sans-serif;
+	font-size: 17px;
+    font-weight: bold;
+
+}
+
+.gmaps-label.small {
+	font-size: 14px;
+}
+
+.gmaps-label.big {
+	font-size: 22px;
+}
+
+.gmaps-label.huge {
+	font-size: 30px;
+}
+

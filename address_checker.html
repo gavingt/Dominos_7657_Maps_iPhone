@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Domino's Address Checker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+        <link rel="manifest" href="img/favicon/manifest.json">
+        <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="img/favicon/favicon.ico">
+        <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <script src="https://use.fontawesome.com/2582766745.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/address_checker.css">
+        <link rel="stylesheet" type="text/css" media="all" href="css/gmaps-labels.css" />
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    </head>
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+
+<!--
+TODO: change address_checker.html to address_checker.html, change address_checker.css and address_checker.js as well to address_checker.css and address_checker.js
+-->
+
+<div class="container">
+    <div id="input-and-address-table-container">
+        <div id="input-container">
+            <div id="input-row">
+                <!-- &#10 is in the middle of "address" to prevent Chrome autocomplete suggestions from appearing -->
+                <input id="input-textbox" placeholder="Enter addre&#10ss or name here" onFocus="biasResultsToDeliveryArea()" type="text" class="input-field">
+                <button id="address-dropdown-button">▼</button>
+                <button id="x_button">X</button>
+            </div>
+        </div>
+
+
+        <div id="address-table-content">
+            <table id="address-table">
+                <tr>
+                    <td class="address-label">Address</td>
+                    <td class="slim-field">
+                        <div class="address-fields" id="street_number"></div>
+                    </td>
+                    <td colspan="2">
+                        <div class="address-fields wide-field" id="route"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="address-label">City</td>
+                    <td colspan="3">
+                        <div class="address-fields wide-field" id="locality"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="address-label">State</td>
+                    <td class="slim-field">
+                        <div class="address-fields" id="administrative_area_level_1"></div>
+                    </td>
+                    <td class="address-label">Zip code</td>
+                    <td>
+                        <div class="address-fields wide-field" id="postal_code"></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div id="result"></div> <!--blank for now, but gets filled in with IN AREA or OUT OF AREA later-->
+
+    <div id="spinner" hidden></div>
+
+    <div id="notes">
+        <h4 id= "main_header"><u>Domino's #7657 Address Checker</u></h4>
+        <p>Start typing the delivery address in the textbox above, and then select the address from the drop-down list when it appears.</p>
+        <p>You can also zoom in and tap a building to see its address.</p>
+        <p>App created by Gavin Wright, 2017. Contact me at gavingt@gmail.com.</p>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="settings-container">
+        <div id="expand-settings-button"><i class="fa fa-sliders" aria-hidden="true"></i></div>
+        <div id="settings-bar">
+            <div class="settings-column">
+                <div class="slider-container">
+                    <label class="switch">
+                        <input type="checkbox" id="checkbox1">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div>Auto-zoom</div>
+            </div>
+
+            <div class="settings-column">
+                <div class="slider-container">
+                    <label class="switch">
+                        <input type="checkbox" id="checkbox2">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div>Dark mode</div>
+            </div>
+
+            <div class="settings-column">
+                <div class="slider-container">
+                    <label class="switch">
+                        <input type="checkbox" id="checkbox3">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div>No map</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/address_checker.js"></script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCiNoSDVQtYBByS97Mou3v0k3o_1hR38qE&callback=initMap&libraries=places&callback=initAutocomplete"></script>
+<script type="text/javascript" src="js/gmaps-labels.js"></script>
+
+
+
+</body>
+</html>

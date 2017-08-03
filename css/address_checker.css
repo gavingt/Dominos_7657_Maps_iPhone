@@ -1,0 +1,637 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html, body {
+    height: 100%;
+}
+
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.container {
+    max-width: 600px;
+    margin:  0 auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/*input-container is for input textbox + button combo */
+#input-container {
+    width: 96%;
+    overflow: auto;
+    height: 45px;
+    border: 2px solid #000090;
+    flex: 0 0 45px;
+    margin: 4px auto 0 auto;
+    display: flex;
+}
+
+#input-row {
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    display: flex;
+}
+
+#input-textbox {
+    flex: 1 1 74%;
+    border: none;
+    padding: 0 0 0 3px;
+    background: #f9f9f9;
+    font-size: 12pt;
+    outline: none;
+    border-radius: 0;
+}
+
+#address-dropdown-button {
+    background: #CCC;
+    border: none;
+    border-left: 1px solid #000090;
+    height: 100%;
+    width: 12%;
+    justify-content: center;
+    padding: 0;
+    display: none;
+    align-items: center;
+    font-size: 13pt;
+    outline: none;
+}
+
+#x_button {
+    height: 100%;
+    border: none;
+    border-left: 1px solid #000090;
+    font-size: 13pt;
+    background: #CCC;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 14%;
+    font-weight: bold;
+}
+
+
+
+#input-and-address-table-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+#address-table-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 600px;
+    max-width: 82%;
+    right: 16%;
+    font-size: 9pt;
+    color: #111;
+    padding: 8px 0 2px 0;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid gray;
+}
+
+/* Show the dropdown menu (use JS to add this class to the #address-table when the user clicks on the dropdown button) */
+/*This CSS selector selects elements that have both the .address-table class and the .show class. This allows display: block to overwrite the display property in .address-table*/
+#address-table-content.show {
+    display:block;
+}
+
+/*entire address table*/
+#address-table {
+    margin: auto;
+}
+
+/*this is for the Street Address, City, State, etc... text labels*/
+.address-label {
+    text-align: right;
+    font-weight: bold;
+    width: 1px;
+    padding-right: 5px;
+    color: #303030;
+}
+
+/*inserts padding between each row in address-table*/
+.address-label, td {
+    padding-bottom: 5px;
+}
+
+/*this is for the Street Address, City, State, etc... textboxes*/
+.address-fields {
+    display: block;
+    border: 1px solid gray;
+    padding: 1px 5px;
+}
+
+/*street number field*/
+.slim-field {
+    width: 80px;
+    padding-right: 5px;
+}
+
+.wide-field {
+    width: 100%;
+}
+
+
+
+
+
+
+#result {
+    text-align: center;
+    font-size: 18pt;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-weight: bold;
+    display: none;
+}
+
+#notes {
+    margin: 0 auto;
+    width: 96%;
+    flex: 1 0 auto;
+    overflow: hidden;
+
+}
+
+#main_header {
+    text-align: center;
+}
+
+
+#map {
+    width: 96%;
+    margin: 0 auto;
+    flex: 1 1 auto;
+    color: black;
+    visibility: hidden;
+}
+
+
+#expand-settings-button {
+    margin: 0 auto;
+    display: table;
+    padding: 2px 5px;
+    color: #4d67ff;
+    cursor: pointer;
+    font-size: 35px;
+}
+
+#settings-bar {
+    border-top: 2px solid black;
+    margin: 0 auto;
+    background-color: #CCC;
+    height: 70px;
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+.settings-column {
+    width: 33%;
+    float: left;
+    display: flex;
+    padding: 5px 0;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 auto;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float: right;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.switch input {
+    display:none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #666666;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+
+input:checked + .slider {
+    background-color: #455ee4;
+}
+
+
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+/*progress bar spinner*/
+#spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    margin: -20px 0 0 -20px;
+    border: 10px solid #e6e6e6;
+    border-radius: 50%;
+    border-top: 10px solid #4CDD00;
+    width: 40px;
+    height: 40px;
+    -webkit-animation: spin 0.75s linear infinite;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/*this is for each individual autocomplete suggestion*/
+.pac-item {
+    height:32px;
+    font-size: 10pt;
+}
+
+.pac-container, .pac-item {
+    width: inherit !important;
+}
+
+/*this is for only the matching entered text in the autocomplete suggestions*/
+.pac-item-query {
+    font-size: 11pt;
+}
+
+/*prevents icon markers from showing up in autocomplete list (to save horizontal screen space)*/
+.pac-icon-marker {
+    display: none;
+}
+
+
+
+
+.label7667 {
+    color: blue;
+}
+
+.label7657 {
+    color: #ff363f;
+}
+
+.label7659 {
+    color: #15b031;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+    display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 1.25dppx),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
