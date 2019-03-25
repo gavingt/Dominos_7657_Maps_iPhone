@@ -465,6 +465,10 @@ input:checked + .slider:before {
     color: #15b031;
 }
 
+.label7601 {
+    color: #ff9403;
+}
+
 
 /* ==========================================================================
    Helper classes

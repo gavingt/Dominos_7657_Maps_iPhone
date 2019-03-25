@@ -3,7 +3,7 @@ var defaultZoomLevel = 12;
 var currentZoomLevel = 12;
 var map = undefined;
 var autocomplete, marker;
-var areaPolygon7667, areaPolygon7657, areaPolygon7659;
+var areaPolygon7667, areaPolygon7657, areaPolygon7659, areaPolygon7601;
 
 var componentForm = {
     street_number: 'short_name',
@@ -172,6 +172,39 @@ var areaCoords7659 = [
     {lat: 33.450988, lng: -111.956790}, //end of curve on van buren
     {lat: 33.450974, lng: -111.974206}, //minor curve at van buren and 50th st
     {lat: 33.451188, lng: -111.987127} //van buren and 44th st
+];
+
+
+// Define the LatLng coordinates for the polygon's path.
+var areaCoords7601 = [
+    {lat: 33.531448, lng: -112.026424}, //24th st/lincoln
+    {lat: 33.529364, lng: -112.018807}, //lincoln near 29th pl
+    {lat: 33.529954, lng: -112.016157}, //lincoln near 31st pl
+    {lat: 33.531208, lng: -112.014797}, //lincoln just west of 32nd st
+    {lat: 33.531922, lng: -112.012981}, //lincoln/32nd st
+    {lat: 33.531852, lng: -111.995181}, //lincoln/40th st
+    {lat: 33.531055, lng: -111.977700}, //lincoln near 48th st
+    {lat: 33.531084, lng: -111.970160}, //lincoln/51st pl
+    {lat: 33.529008, lng: -111.970017}, //south of lincoln on 51st pl
+    {lat: 33.526094, lng: -111.970336}, //further south of lincoln on 51st pl
+    {lat: 33.523841, lng: -111.970033}, //mcdonald/51st pl
+    {lat: 33.523778, lng: -111.969464}, //mcdonald/val vista way
+    {lat: 33.518967, lng: -111.969108}, //camelback mtn 1
+    {lat: 33.512233, lng: -111.964902}, //camelback mtn 2
+    {lat: 33.510846, lng: -111.960648}, //camelback mtn 3
+    {lat: 33.487422, lng: -111.960856}, //56th st/osborn
+    {lat: 33.487401, lng: -111.978070}, //48th st/osborn
+    {lat: 33.487588, lng: -111.986991}, //44th st/osborn
+    {lat: 33.451191, lng: -111.987136}, //44th st/van buren
+    {lat: 33.451309, lng: -112.012895}, //32nd st/van buren
+    {lat: 33.487873, lng: -112.012955}, //32nd st/osborn
+    {lat: 33.487755, lng: -112.021571}, //28th st/osborn
+    {lat: 33.495023, lng: -112.021608}, //28th st/indian school
+    {lat: 33.494830, lng: -112.030202}, //24th st/indian school
+    {lat: 33.519960, lng: -112.030158}, //24th st/montebello
+    {lat: 33.526870, lng: -112.029891}, //24th st/arizona biltmore cir
+    {lat: 33.528713, lng: -112.029062}, //24th st/north of arizona biltmore cir
+    {lat: 33.529445, lng: -112.028394}  //24th st south of lincoln
 ];
 
 
@@ -506,6 +539,16 @@ function initMap(latitude, longitude) {
             className: "label7659",
             map: map
         });
+
+        //Adds the store number 7601 as a label on the map
+        new LabelOverlay({
+            ll: new google.maps.LatLng(33.498770, -111.995540),
+            label: "7601",
+            maxZoom: 13,
+            minZoom: 11,
+            className: "label7601",
+            map: map
+        });
     }
 
 
@@ -547,9 +590,21 @@ function initMap(latitude, longitude) {
         fillOpacity: 0.35
     });
 
+    areaPolygon7601 = new google.maps.Polygon({
+        paths: areaCoords7601,
+        strokeColor: '#ffa900',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        clickable:false,
+        fillColor: '#efca70',
+        fillOpacity: 0.35
+    });
+
     areaPolygon7667.setMap(map);
     areaPolygon7657.setMap(map);
     areaPolygon7659.setMap(map);
+    areaPolygon7601.setMap(map);
+
 
     displayResultText(latitude, longitude);
     showInfoWindow(map);
@@ -580,6 +635,9 @@ function displayResultText(latitude, longitude) {
     else if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(latitude, longitude), areaPolygon7659) === true) {
         resultHeading.style.color = "#ff363f";
         resultHeading.innerHTML = 'OUT OF AREA<br>call (602) 952-9300';
+    } else if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(latitude, longitude), areaPolygon7601) === true) {
+        resultHeading.style.color = "#ff363f";
+        resultHeading.innerHTML = 'OUT OF AREA<br>call (602) 957-8377';
     }
     else {
         resultHeading.style.color = "#ff363f";
